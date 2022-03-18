@@ -60,7 +60,7 @@ async function iniciar(){
 	await syncDelay(1000);
 	ordem=[];
 	posicao="0";
-	pontos=0;
+	pontos =0;
 	ordem.push(gerarNumero());
 	mostrarOrdem(0);
 }
@@ -70,10 +70,15 @@ async function mostrarOrdem(i){
 		document.body.style.backgroundColor="#5CC7B2";
 		desativar = true;
 	}
-	await mostrarSelecao(ordem[i],500);
+	//Aumentar a velocidade
+	v = 500-(500*pontos*5/100)
+	//Limite é 50ms
+	if(v<50){v=50;}
+	
+	await mostrarSelecao(ordem[i],v);
 		if(i<ordem.length-1){
 			i++;
-			await syncDelay(1000);
+			await syncDelay(v*2);
 			mostrarOrdem(i);
 		}
 	else{
