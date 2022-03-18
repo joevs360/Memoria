@@ -1,0 +1,40 @@
+<html>
+    <head>
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+		<script src="script/script.js"></script>
+	    <div class="container">
+		    <div id="divJogo"  style="display: none">
+			    <table>
+				    <thead>
+					    <tr>
+						    <th scope="col"><h3 id="pontos">PONTOS: 0</h3></th>
+						</tr>
+					</thead>
+					<tbody>
+					    <tr>
+						    <td id="c0" onclick="selecionar(0)"><center><img  src="images/animals/1.png"  /></center></td> 
+							<td id="c1" onclick="selecionar(1)"><center><img  src="images/animals/2.png" /></center></td> 
+							<td id="c2" onclick="selecionar(2)"><center><img  src="images/animals/3.png" /></center></td> 
+						</tr>
+						<tr>
+						    <td id="c3" onclick="selecionar(3)"><center><img  src="images/animals/4.png" /></center></td> 
+							<td id="c4" onclick="selecionar(4)"><center><img  src="images/animals/5.png"/></center></td> 
+							<td id="c5"onclick="selecionar(5)"><center><img  src="images/animals/6.png" /></center></td> 
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="divMenu">
+			    <center>
+			    <img src="images/memoria.png"/>
+				<h3 id="dados"></h3>
+				<br>
+				<button class="btn btn-danger" onclick="iniciar()" >JOGAR</button>
+				</center>
+			</div>
+		</div>
+    </body>
+</html>
