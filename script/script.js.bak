@@ -46,46 +46,42 @@ async function selecionar(i){
 	     desativar = false;
     }
 }
-			function gerarNumero(){
-			    min = Math.ceil(0);
- 		        max = Math.floor(5);
- 		        return Math.floor(Math.random() * (max - min)) + min;
-			}
-			async function iniciar(){
-			    limparSelecao();
-				desativar = true;
-				document.body.style.backgroundColor="#D6E8FF";
-				document.getElementById("divJogo").style.display ="block";
-				document.getElementById("divMenu").style.display ="none";
-				await syncDelay(1000);
-				
-			    ordem=[];
-			    posicao="0";
-				pontos=0;
-			    ordem.push(gerarNumero());
-				mostrarOrdem(0);
-			}
+function gerarNumero(){
+	min = Math.ceil(0);
+    max = Math.floor(5);
+ 	return Math.floor(Math.random() * (max - min)) + min;
+}
+async function iniciar(){
+	limparSelecao();
+	desativar = true;
+	document.body.style.backgroundColor="#D6E8FF";
+	document.getElementById("divJogo").style.display ="block";
+	document.getElementById("divMenu").style.display ="none";
+	await syncDelay(1000);
+	ordem=[];
+	posicao="0";
+	pontos=0;
+	ordem.push(gerarNumero());
+	mostrarOrdem(0);
+}
+async function mostrarOrdem(i){
+	if(i==0){
+		await syncDelay(1000);
+		document.body.style.backgroundColor="#5CC7B2";
+		desativar = true;
+	}
+	await mostrarSelecao(ordem[i],500);
+		if(i<ordem.length-1){
+			i++;
+			await syncDelay(1000);
+			mostrarOrdem(i);
+		}
+	else{
+		desativar = false;
+		document.body.style.backgroundColor="#D6E8FF";
+	}
+}
 			
-			
-			async function mostrarOrdem(i){
-			    if(i==0){
-				   await syncDelay(1000);
-				   document.body.style.backgroundColor="#5CC7B2";
-				   desativar = true;
-				}
-			    await mostrarSelecao(ordem[i],500);
-				if(i<ordem.length-1){
-				    i++;
-					await syncDelay(1000);
-			    	mostrarOrdem(i);
-				}
-				else{
-				   desativar = false;
-				   document.body.style.backgroundColor="#D6E8FF";
-				}
-				
-			}
-			
-			function syncDelay(ms){
-                return new Promise(function(resolve){setTimeout(resolve,ms); });
-            }
+function syncDelay(ms){
+    return new Promise(function(resolve){setTimeout(resolve,ms); });
+}

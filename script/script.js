@@ -48,7 +48,7 @@ async function selecionar(i){
 }
 function gerarNumero(){
 	min = Math.ceil(0);
-    max = Math.floor(5);
+    max = Math.floor(6);
  	return Math.floor(Math.random() * (max - min)) + min;
 }
 async function iniciar(){
